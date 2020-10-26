@@ -404,7 +404,6 @@ void digitalWriteCallback(byte port, int value)
     lastPin = port * 8 + 8;
     if (lastPin > TOTAL_PINS) lastPin = TOTAL_PINS;
     for (pin = port * 8; pin < lastPin; pin++) {
-      //////////////////////// LASER //////////////////////////////////////////////////////////////////////////////////////////////////
       if (pin == 6) { // Through this pin binary information enters.
         if (digitalRead(6) == HIGH) { // If its a 1 (because there is activity in ROI) then a GREEN LED inserted in this pin is lit.
           digitalWrite(8, LOW); // Therefore YELLOW LED turns off.
@@ -417,7 +416,6 @@ void digitalWriteCallback(byte port, int value)
           digitalWrite(8, HIGH); // Therefore YELLOW LED is on.
         }
       }
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       // do not disturb non-digital pins (eg, Rx & Tx)
       if (IS_PIN_DIGITAL(pin)) {
         // do not touch pins in PWM, ANALOG, SERVO or other modes
